@@ -1,7 +1,0 @@
-require('config.lazy')
-require('config.general')
-require('config.lsp')
-require('config.autopairs')
-require('config.formatter')
-require('config.telescope')
-require('config.treesitter')

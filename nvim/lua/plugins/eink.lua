@@ -1,1 +1,0 @@
-return { 'kisom/eink.vim' }
