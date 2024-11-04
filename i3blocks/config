@@ -1,0 +1,79 @@
+[windows]
+command=~/.config/i3blocks/windows.sh
+interval=5
+width=40
+
+[brightness]
+command=brightnessctl | grep -oP '\(\K[0-9]+(?=%\))'
+interval=5
+label=󰃠 
+
+[miccontrol]
+command=~/.config/i3blocks/miccontrol.sh
+#label=MIC 
+SOURCE=alsa_input.pci-0000_00_1f.3.analog-stereo
+interval=10
+signal=10
+
+[volume]
+command=~/.config/i3blocks/volume.sh
+interval=persist
+SUBSCRIBE=1
+USE_ALSA_NAME=1
+
+[wireless]
+command=~/.config/i3blocks/wifi.sh
+#INTERFACE=wlan0
+interval=60
+format_up="%output"
+#COLOR_GE80=#00FF00
+#COLOR_GE60=#FFF600
+#COLOR_GE40=#FFAE00
+#COLOR_LOWR=#FF0000
+#COLOR_DOWN=#FF0000
+
+[battery]
+command=~/.config/i3blocks/battery.sh
+interval=10
+format="%output %remaining"
+#COLOR_GE80=#00FF00
+#COLOR_GE60=#FFF600
+#COLOR_GE40=#FFAE00
+#COLOR_LOWR=#FF0000
+#COLOR_DOWN=#FF0000
+
+[disk]
+command=df -h / | awk 'NR==2 {print $4}'
+label= 
+interval=60
+format="%output"
+
+[cpu_usage]
+command=~/.config/i3blocks/cpu_usage.pl
+interval=10
+LABEL=󰻠 
+#min_width=CPU: 100.00%
+#T_WARN=50
+#T_CRIT=80
+#DECIMALS=2
+#COLOR_NORMAL=#EBDBB2
+#COLOR_WARN=#FFFC00
+#COLOR_CRIT=#FF0000
+
+[load]
+command=uptime | awk -F'[a-z]:' '{ print $2 }' | awk '{print $1}'
+label=Load:
+interval=10
+format="%output"
+
+[memory]
+command=~/.config/i3blocks/memory.sh
+label= 
+interval=10
+format=" %output"
+
+[tztime]
+command=date '+%d-%m-%Y 󱑀 %H:%M:%S'
+label=󰃭 
+interval=1
+format="%output"
