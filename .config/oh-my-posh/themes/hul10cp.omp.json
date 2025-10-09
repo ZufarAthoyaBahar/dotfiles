@@ -1,0 +1,209 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "white": "#f7f7f7",
+    "black": "#111111"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "transparent",
+          "foreground": "p:white",
+          "style": "plain",
+          "template": "\u250c",
+          "type": "text"
+        },
+        {
+          "background": "#464646",
+          "foreground": "p:white",
+          "properties": {
+            "windows": "\ue62a",
+            "linux": "\uf17c",
+            "ubuntu": "\uf31b",
+            "macos": "\uf179"
+          },
+          "style": "plain",
+          "template": " {{.Icon}} {{if .WSL}} (WSL){{end}}\u2800",
+          "type": "os"
+        },
+        {
+          "background": "p:white",
+          "foreground": "p:black",
+          "style": "plain",
+          "template": " \uf489 {{.Name}}\u2800",
+          "type": "shell"
+        },
+        {
+          "background": "#ffe093",
+          "foreground": "p:black",
+          "style": "plain",
+          "template": " \uf2c0 {{.HostName}}\ue0bd{{.UserName}}\u2800",
+          "type": "session"
+        },
+        {
+          "background": "#ffffd6",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffffd6{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ffffd6{{ end }}",
+            "{{ if gt .Ahead 0 }}#ffeeaa{{ end }}",
+            "{{ if gt .Behind 0 }}#ffeeaa{{ end }}"
+          ],
+          "foreground": "#011627",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true
+          },
+          "style": "powerline",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#CAEBE1> \uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "type": "command",
+          "style": "plain",
+          "foreground": "#FFFFFF",
+          "background": "#5C6BC0",
+          "template": " \ue61e \ue61d gcc {{ .Output }} ",
+          "properties": {
+            "command": "~/.config/oh-my-posh/themes/gcc.fish"
+          }
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "background": "#FFFFFF",
+          "foreground": "#68A063",
+          "template": " \ued0d {{ .Full }} "
+        },
+        {
+          "type": "npm",
+          "style": "powerline",
+          "foreground": "#193549",
+          "background": "#ffeb3b",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "react",
+          "style": "powerline",
+          "foreground": "#81a1c1",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "properties": {
+            "display_mode": "context"
+          },
+          "background": "#4B88B9",
+          "foreground": "#FFDE57",
+          "template": " \ue73c {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} "
+        },
+        {
+          "type": "go",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "background": "#7FD5EA",
+          "template": " \u202d\ue626 {{ .Full }} "
+        },
+        {
+          "type": "rust",
+          "style": "powerline",
+          "foreground": "#193549",
+          "background": "#99908A",
+          "template": " \ue7a8 {{ .Full }} "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "transparent",
+          "foreground": "#b3ffde",
+          "properties": {
+            "style": "austin",
+            "threshold": 0
+          },
+          "style": "plain",
+          "template": "{{.FormattedMs}} · ",
+          "type": "executiontime"
+        },
+        {
+          "type": "battery",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "#b3ffde",
+          "template": "{{ if eq .State.String \"Charging\" }}\uf0e7{{ end }}{{ if ge .Percentage 90 }}\udb80\udc82{{ else if ge .Percentage 80 }}\udb80\udc81{{ else if ge .Percentage 70 }}\udb80\udc80{{ else if ge .Percentage 60 }}\udb80\udc7f{{ else if ge .Percentage 50 }}\udb80\udc7e{{ else if ge .Percentage 40 }}\udb80\udc7d{{ else if ge .Percentage 30 }}\udb80\udc7c{{ else if ge .Percentage 20 }}\udb80\udc7b{{ else if ge .Percentage 10 }}\udb80\udc7a{{ else if ge .Percentage 0 }}\udb80\udc8e{{ end }} {{.Percentage}}% · ",
+          "properties": {
+            "charged_icon": "\uf00d",
+            "charging_icon": "\uf0e7",
+            "discharging_icon": "\uf242",
+            "color_background": true
+          },
+          "foreground_templates": ["{{ if lt .Percentage 20 }}#FF0000{{ end }}"]
+        },
+        {
+          "background": "transparent",
+          "foreground": "#b3ffde",
+          "properties": {
+            "time_format": "02/01/06 15:04"
+          },
+          "style": "plain",
+          "template": "</>{{.CurrentDate | date .Format}}",
+          "type": "time"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "transparent",
+          "foreground": "p:white",
+          "properties": {
+            "folder_icon": "\uf07b",
+            // "folder_separator_template": "<#93d0ff> \u00bb </>",
+            "folder_separator_template": "<#93d0ff> \u00bb </>",
+            "home_icon": "\ueb06",
+            // "home_icon": "~",
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "<p:white>\u2514</><#93d0ff>[</> {{.Path}} <#93d0ff>]</>",
+          // "template": "<p:white>\u2514</> {{ .Path }} ",
+          "type": "path"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "transparent",
+          "foreground": "#81ff91",
+          "foreground_templates": ["{{if gt .Code 0}}#ff3030{{end}}"],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "\u276f",
+          "type": "status"
+        }
+      ]
+    }
+  ],
+  "console_title_template": "{{if .Root}}[root] {{end}}{{.Shell}} in <{{.Folder}}>",
+  "final_space": true,
+  "version": 2
+}
