@@ -1,0 +1,216 @@
+{
+  "margin": "2",
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "custom/notification",
+    "custom/clock-icon",
+    "clock",
+    "tray"
+  ],
+  "modules-right": [
+    "disk#icon",
+    "disk#value",
+    "custom/disk",
+    "pulseaudio#icon",
+    "pulseaudio#value",
+    "backlight#icon",
+    "backlight#value",
+    "network#icon",
+    "network#value",
+    "cpu#icon",
+    "cpu#value",
+    "memory#icon",
+    "memory#value",
+    "battery#icon",
+    "battery#value"
+  ],
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚<span foreground='red'><sup></sup></span>",
+      "none": "󰂚",
+      "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}"
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 40,
+    "icon": true,
+    "icon-size": 18
+  },
+  "custom/clock-icon": {
+    "format": ""
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M:%S}",
+    "format-alt": "  {:%A, %B %d, %Y (  %H:%M)}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "months",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 5
+  },
+  "custom/mic": {
+    "interval": 1,
+    "exec": "~/.config/waybar/miccontrol.sh",
+    "on-click": "pactl set-source-mute $(pactl info | grep 'Default Source' | cut -d '' -f3) toggle"
+  },
+  "pulseaudio#icon": {
+    "interval": 10,
+    "format": "{icon}",
+    "format-icons": [
+      "󰖀",
+      "󰕾",
+    ],
+    "format-muted": "󰖁",
+    "format-source": " ",
+    "format-source-muted": " ",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+  },
+  "pulseaudio#value": {
+    "interval": 10,
+    "format": "{volume}% {format_source}",
+    //"format-source": "{volume}%",
+    "format-source": " {volume}%",
+    "format-source-muted": " {volume}%",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+  },
+  "backlight#icon": {
+    "format": "{icon}",
+    "format-icons": [
+      "󰃞",
+      "󰃝",
+      "󰃟",
+      "󰃠"
+    ]
+  },
+  "backlight#value": {
+    "format": "{percent}%"
+  },
+  "network#icon": {
+    "interval": 10,
+    "format": "()",
+    "format-wifi": "󰖩",
+    "format-ethernet": " ",
+    "format-disconnected": " ",
+    "tooltip-format": " ",
+    "tooltip-format-wifi": "󰖩",
+    "tooltip-format-ethernet": " ",
+    "tooltip-format-disconnected": "",
+    "max-length": 2
+  },
+  "network#value": {
+    "interval": 10,
+    "format": "{ifname}",
+    "format-wifi": "({signalStrength}%) {bandwidthTotalBytes} {essid} ",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 25
+  },
+  "disk#icon": {
+    "interval": 30,
+    "format": "/"
+    //"format-alt": "/home",
+  },
+  "disk#value": {
+    "interval": 30,
+    "format": "{percentage_used}%",
+    "path": "/",
+  },
+  "custom/disk": {
+    "interval": 30,
+    "exec": "df /home --output=avail,size | tail -n 1 | awk '{free=$1; total=$2; used_percentage=100 - (free/total*100); printf \"/home %.0f%\", used_percentage}'"
+  },
+  "memory#icon": {
+    "interval": 10,
+    "format": ""
+  },
+  "memory#value": {
+    "interval": 3,
+    "format": "{used:0.2f}G"
+  },
+  "cpu#icon": {
+    "interval": 10,
+    "format": ""
+  },
+  "cpu#value": {
+    "interval": 3,
+    "format": "{usage}%"
+  },
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/.config/waybar/cava.sh"
+  },
+  "battery#icon": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-charging": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "max-length": 2
+  },
+  "battery#value": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% ({time})",
+    "format-time": "{H}:{M}",
+    "format-charging": "{capacity}% ({time})",
+    //"max-length": 5
+  }, 
+  "reload_style_on_change": true
+}

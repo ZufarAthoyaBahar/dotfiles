@@ -12,7 +12,7 @@
 @define-color dark_purple #7e3992;
 @define-color dark_red #8b3434;
 @define-color dark_yellow #835d1a;
-@define-color fg #ffffff;
+@define-color fg #a0a8b7;
 @define-color green #8ebd6b;
 @define-color grey #535965;
 @define-color light_grey #7a818e;
@@ -30,7 +30,7 @@
 }
 
 window#waybar {
-  background: rgba(40, 44, 52, 0);
+  background: rgba(40, 44, 52, 0.5);
   color: @fg;
   border-radius: 5px;
   border: none;
@@ -39,14 +39,12 @@ window#waybar {
 
 #workspaces {
   margin-left: 0.5em;
-  padding: 0.2em 0.2em 0 1.7em;
-  border-radius: 0 0 0 5em;
-  background: @bg1;
+  padding: 0.2em;
 }
 
 #workspaces > button {
   font-weight: bold;
-  border-radius: 5em;
+  border-radius: 5px;
   padding: 0 0.4em;
   margin: 0 0.1em;
   color: @fg;
@@ -55,7 +53,8 @@ window#waybar {
 
 #workspaces > button.active {
   font-size: 1em;
-  border-bottom: 0.5em solid @blue;
+  color: @bg1;
+  background: @blue;
 }
 
 #workspaces > button.urgent {
@@ -66,14 +65,16 @@ window#waybar {
 #window {
   background: @bg1;
   padding: 0 1em;
-  border-radius: 0 5em 0 0;
+  border-radius: 1em;
+  margin: 5px;
 }
 
 #tray {
   font-size: 1em;
-  padding: 0 1em 0 0.5em;
-  border-radius: 0 0 5em 0;
-  background: @bg2;
+  margin: 5px 0.5em 5px 0;
+  padding: 0 0.5em 0 0.5em;
+  border-radius: 5px 5px 5px 5px;
+  background: @bg1;
 }
 
 #clock,
@@ -81,13 +82,17 @@ window#waybar {
 #backlight.value,
 #network.value,
 #memory.value,
-#cpu.value {
+#cpu.value,
+#battery.value {
   font-size: 1em;
-  padding: 0 0.5em 0 0.2em;
-  background: @bg2;
+  margin: 5px 0.5em 5px 0;
+  padding: 0 1em 0 0.5em;
+  border-radius: 0 1em 1em 0;
+  background: @bg1;
 }
 
 #custom-clock-icon,
+#disk.icon,
 #custom-mic,
 #pulseaudio.source,
 #pulseaudio.icon,
@@ -97,121 +102,102 @@ window#waybar {
 #cpu.icon,
 #battery.icon {
   font-size: 1em;
+  margin: 5px 0 5px 0.5em;
   padding: 0 0.9em 0 0.5em;
-  background: @bg3;
+  border-radius: 5px 0px 0px 5px;
+  background: @fg;
+  color: @bg1;
 }
-
-#custom-notification {
-  border-radius: 0 0 0 5em;
-  font-size: 1em;
-  padding: 0 1em 0 2em;
-  background: @bg2;
+#custom-clock-icon {
+  background: @green;
 }
-
-#battery.icon,
-#battery.value {
-  background: @bg2;
-  border-bottom: 0.4em solid @blue;
+#backlight.icon {
+  background: @yellow;
+}
+#network.icon {
+  background: @purple;
+}
+#memory.icon {
+  background: @red;
+}
+#cpu.icon {
+  background: @cyan;
+}
+#pulseaudio.icon {
+  background: @orange;
+}
+#pulseaudio.icon.muted {
+  background: @grey;
+}
+#pulseaudio.icon.source {
+  background: @orange;
 }
 
 #battery.icon {
-  font-size: 1em;
-  color: @blue;
+  background: @blue;
+}
+#battery.icon.warning {
+  background: @yellow;
+}
+#battery.icon.critical {
+  background: @red;
+}
+#battery.icon.charging {
+  background: @green;
 }
 
-#battery.icon.warning {
+#clock {
+  color: @green;
+}
+#backlight.value {
   color: @yellow;
 }
-
-#battery.icon.critical {
+#network.value {
+  color: @purple;
+}
+#cpu.value {
+  color: @cyan;
+}
+#memory.value {
   color: @red;
 }
-
-#battery.icon.charging {
-  color: @green;
+#pulseaudio.value {
+  color: @orange;
 }
 
 #battery.value {
-  padding: 0 2em 0 0;
-  border-radius: 0 0 5em 0;
+  color: @blue;
 }
-
-#memory.icon,
-#memory.value {
-  border-bottom: 0.4em solid @red;
-}
-
-#memory.icon {
-  font-size: 1em;
-  color: @red;
-}
-
-#cpu.icon,
-#cpu.value {
-  border-bottom: 0.4em solid @yellow;
-}
-
-#cpu.icon {
-  font-size: 1em;
+#battery.value.warning {
   color: @yellow;
 }
-
-#network.icon,
-#network.value {
-  border-bottom: 0.4em solid @green;
+#battery.value.critical {
+  color: @red;
 }
-
-#network.icon {
-  font-size: 1em;
+#battery.value.charging {
   color: @green;
 }
 
-#backlight.icon,
-#backlight.value {
-  border-bottom: 0.4em solid @yellow;
-}
-
-#backlight.icon {
+#custom-notification {
+  border-radius: 5px;
   font-size: 1em;
-  color: @yellow;
-}
-
-#pulseaudio.icon,
-#pulseaudio.value {
-  border-bottom: 0.4em solid @orange;
-}
-
-#pulseaudio.icon {
-  padding-left: 1em;
-  font-size: 1em;
-  color: @orange;
-}
-
-#pulseaudio.icon.muted {
-  color: @grey;
-}
-
-#custom-mic {
-  font-size: 1em;
-  color: @orange;
+  margin: 5px 0 5px 0.5em;
+  padding: 0 0.7em 0 0.5em;
+  background: @yellow;
+  color: @bg1;
 }
 
 #custom-disk,
-#disk.icon,
 #disk.value {
   font-size: 1em;
-  background: @bg2;
-  border-bottom: 0.4em solid @red;
-}
-
-#disk.icon {
-  font-size: 1em;
-  padding: 0 0 0 2em;
-  border-radius: 5em 0 0 0;
-  background: @bg3;
-  color: @red;
-}
-
-#modules-right {
+  margin: 5px 0em 5px 0;
+  padding: 0 0.5em 0 0.5em;
   background: @bg1;
+  color: @fg;
+}
+
+#custom-disk {
+  border-radius: 0px 1em 1em 0px;
+  margin: 5px 0.5em 5px 0;
+  padding: 0 1em 0 0.5em;
 }
