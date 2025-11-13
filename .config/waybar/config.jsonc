@@ -62,7 +62,7 @@
   "clock": {
     "interval": 1,
     "format": "{:%H:%M:%S}",
-    "format-alt": "  {:%A, %B %d, %Y (  %H:%M)}",
+    "format-alt": "  {:%a, %d %b %y (  %H:%M)}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "months",
@@ -185,7 +185,7 @@
     "exec": "~/.config/waybar/cava.sh"
   },
   "battery#icon": {
-    "interval": 10,
+    "interval": 5,
     "states": {
       "warning": 30,
       "critical": 15
@@ -202,7 +202,7 @@
     "max-length": 2
   },
   "battery#value": {
-    "interval": 10,
+    "interval": 7,
     "states": {
       "warning": 30,
       "critical": 15

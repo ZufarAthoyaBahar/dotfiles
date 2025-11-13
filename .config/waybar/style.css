@@ -46,8 +46,8 @@ window#waybar {
 
 #workspaces > button {
   font-weight: bold;
-  border-radius: 5em;
-  padding: 0 0.4em;
+  border-radius: 0 0 0 1.3em;
+  padding: 0 0 0 0.6em;
   margin: 0 0.1em;
   color: @fg;
   background: @bg1;
@@ -55,7 +55,7 @@ window#waybar {
 
 #workspaces > button.active {
   font-size: 1em;
-  border-bottom: 0.5em solid @blue;
+  border-bottom: 0.4em solid @blue;
 }
 
 #workspaces > button.urgent {
@@ -74,6 +74,13 @@ window#waybar {
   padding: 0 1em 0 0.5em;
   border-radius: 0 0 5em 0;
   background: @bg2;
+  border-bottom: 0.4em solid @light_grey;
+}
+
+#clock,
+#custom-clock-icon,
+#custom-notification {
+  border-bottom: 0.4em solid @light_grey;
 }
 
 #clock,
@@ -115,23 +122,32 @@ window#waybar {
 }
 
 #battery.icon {
-  font-size: 1em;
   color: @blue;
 }
 
-#battery.icon.warning {
+#battery.icon.warning,
+#battery.value.warning {
+  border-bottom: 0.4em solid @yellow;
   color: @yellow;
 }
 
-#battery.icon.critical {
+#battery.icon.critical,
+#battery.value.critical {
+  border-bottom: 0.4em solid @red;
   color: @red;
 }
 
-#battery.icon.charging {
+#battery.icon.charging,
+#battery.value.charging {
+  border-bottom: 0.4em solid @green;
   color: @green;
 }
 
-#battery.value {
+#battery.value,
+#battery.value.charging,
+#battery.value.warning
+{
+  color: @fg;
   padding: 0 2em 0 0;
   border-radius: 0 0 5em 0;
 }
@@ -142,7 +158,6 @@ window#waybar {
 }
 
 #memory.icon {
-  font-size: 1em;
   color: @red;
 }
 
@@ -152,7 +167,6 @@ window#waybar {
 }
 
 #cpu.icon {
-  font-size: 1em;
   color: @yellow;
 }
 
@@ -162,7 +176,6 @@ window#waybar {
 }
 
 #network.icon {
-  font-size: 1em;
   color: @green;
 }
 
@@ -172,7 +185,6 @@ window#waybar {
 }
 
 #backlight.icon {
-  font-size: 1em;
   color: @yellow;
 }
 
@@ -183,7 +195,6 @@ window#waybar {
 
 #pulseaudio.icon {
   padding-left: 1em;
-  font-size: 1em;
   color: @orange;
 }
 
@@ -192,20 +203,17 @@ window#waybar {
 }
 
 #custom-mic {
-  font-size: 1em;
   color: @orange;
 }
 
 #custom-disk,
 #disk.icon,
 #disk.value {
-  font-size: 1em;
   background: @bg2;
   border-bottom: 0.4em solid @red;
 }
 
 #disk.icon {
-  font-size: 1em;
   padding: 0 0 0 2em;
   border-radius: 5em 0 0 0;
   background: @bg3;
