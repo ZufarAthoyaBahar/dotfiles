@@ -142,7 +142,7 @@ vim.api.nvim_set_hl(0, "MyCustomFooter", { fg = "#7fbbb3", italic = true })
 
 -- Menu
 dashboard.section.buttons.val = {
-  dashboard.button("n", "󰙅  Toggle Tree", ":NvimTreeToggle <CR>"),
+  dashboard.button("n", "󰙅  Toggle Tree", ":NvimTreeOpen <CR>"),
   dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
   dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
