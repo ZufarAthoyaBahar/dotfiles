@@ -14,6 +14,7 @@ set -x POSH_THEME /home/zufarath/.config/oh-my-posh/themes/emodipt.omp.json
 alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 
 alias vscode='cd ~/Documents/vscode'
+alias sem7='cd ~/Documents/vscode/Kuliah/semester7'
 alias sem6='cd ~/Documents/vscode/Kuliah/semester6'
 alias sem5='cd ~/Documents/vscode/Kuliah/semester5'
 alias sem4='cd ~/Documents/vscode/Kuliah/Semester4'
@@ -41,6 +42,9 @@ alias dl='cd ~/Documents/vscode/Kuliah/semester5/dl'
 alias monitor='~/.config/rofi/monitor.sh'
 
 alias python3.12.3='/home/zufarath/.pyenv/versions/3.12.3/bin/python'
+
+alias nvim-lazy='NVIM_APPNAME=nvim_lazy nvim'
+alias nvim-chad='NVIM_APPNAME=nvim_nvchad nvim'
 
 set -x ANDROID_HOME /home/zufarath/Android/Sdk
 set -x PATH $PATH $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools
