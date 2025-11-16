@@ -14,7 +14,11 @@ require('config.gitsigns')
 require('config.lualine')
 require('config.indent-blankline')
 require('config.mason')
--- require('config.feline')
+require('config.line-number')
 
 -- require('config.cmp')
--- require('config.nvim-tree'1f2329)
+
+local theme_file = vim.fn.stdpath("config") .. "/lua/current-theme.lua"
+if vim.fn.filereadable(theme_file) == 1 then
+  pcall(dofile, theme_file)
+end

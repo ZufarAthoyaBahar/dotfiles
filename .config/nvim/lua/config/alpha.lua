@@ -137,7 +137,10 @@ local banner = {
 }
 
 dashboard.section.header.val = banner
-vim.api.nvim_set_hl(0, "MyCustomHeader", { fg = "#7fbbb3" })
+
+-- Normal fg = #7fbbb3
+vim.api.nvim_set_hl(0, "MyCustomHeader", { fg = "#7fbbb3", bold = true })
+
 vim.api.nvim_set_hl(0, "MyCustomFooter", { fg = "#7fbbb3", italic = true })
 
 -- Menu

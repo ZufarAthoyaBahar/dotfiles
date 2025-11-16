@@ -11,8 +11,8 @@ opt.number = true
 -- opt.guicursor = "n-v-i-c:thin-Cursor"
 opt.signcolumn = 'no'
 opt.clipboard = 'unnamedplus'
--- vim.o.background = "dark" -- or "light" for light mode
 vim.wo.relativenumber = true
+opt.cursorline = true
 -- vim.cmd.colorscheme = "blue"
 -- vim.cmd [[colorscheme tokyonight-moon]]
 -- vim.cmd [[colorscheme dracula]]
@@ -21,7 +21,7 @@ vim.wo.relativenumber = true
 -- vim.cmd [[colorscheme nord]]
 -- vim.cmd [[colorscheme material]]
 -- vim.cmd [[colorscheme night-owl]]
-vim.cmd [[colorscheme duskfox]]
+-- vim.cmd [[colorscheme duskfox]]
 -- vim.cmd [[colorscheme vague]]
 -- vim.cmd [[colorscheme embark]]
 -- vim.cmd [[colorscheme mellow]]

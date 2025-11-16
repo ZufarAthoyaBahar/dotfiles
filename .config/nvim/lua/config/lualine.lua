@@ -19,10 +19,7 @@ local mytheme = {
     b = { fg = colors.white, bg = colors.grey },
     c = { fg = colors.white },
   },
-  -- insert = { a = { fg = colors.blue, bg = colors.bg } },
-  -- visual = { a = { fg = colors.peanut, bg = colors.bg } },
-  -- replace = { a = { fg = colors.red, bg = colors.bg } },
-  -- command = { a = { fg = colors.red, bg = colors.bg } },
+
 
   inactive = {
     a = { fg = colors.blue, bg = colors.black },
@@ -33,9 +30,9 @@ local mytheme = {
 
 require('lualine').setup({
   options = {
-    theme = mytheme,
-    section_separators = '',
-    component_separators = '',
+    -- theme = mytheme,
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     globalstatus = true,
   },
   sections = {
@@ -45,45 +42,50 @@ require('lualine').setup({
         function()
           return ""
         end,
-        color = function()
-          local mode_color = {
-            n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
-            i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
-            v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
-            V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
-            c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
-            R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
-          }
-          return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
-        end,
+        -- color = function()
+        --   local mode_color = {
+        --     n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
+        --     i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
+        --     v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
+        --     V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
+        --     c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
+        --     R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
+        --   }
+        --   return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
+        -- end,
         separator = { left = '', right = '' },
         padding = { left = 1, right = 0 },
       },
       {
         'mode',
-        color = function()
-          local mode_color = {
-            n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
-            i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
-            v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
-            V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
-            c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
-            R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
-          }
-          return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
-        end,
+        -- color = function()
+        --   local mode_color = {
+        --     n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
+        --     i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
+        --     v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
+        --     V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
+        --     c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
+        --     R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
+        --   }
+        --   return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
+        -- end,
       },
     },
-    lualine_b = { { 'branch', color = { fg = colors.purple, gui = 'bold' } },
+    lualine_b = {
+      { 'branch',
+        -- color = {
+        --   fg = colors.purple, gui = 'bold'
+        -- }
+      },
       {
         'diff',
         symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
-        colored = true,
-        diff_color = {
-          added = { fg = colors.green },
-          modified = { fg = colors.orange },
-          removed = { fg = colors.red },
-        },
+        -- colored = true,
+        -- diff_color = {
+        --   added = { fg = colors.green },
+        --   modified = { fg = colors.orange },
+        --   removed = { fg = colors.red },
+        -- },
 
       }, 'diagnostics' },
     lualine_c = { { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 }, }, {
@@ -91,9 +93,9 @@ require('lualine').setup({
       icons_enabled = true,
       path = 1,
       padding = 0,
-      color = {
-        fg = colors.blue
-      }
+      -- color = {
+      --   fg = colors.blue
+      -- }
     } },
 
     -- right
@@ -111,60 +113,60 @@ require('lualine').setup({
           end
           return '  ' .. table.concat(names, ' | ')
         end,
-        color = { fg = colors.fg, gui = 'bold' },
+        -- color = { fg = colors.fg, gui = 'bold' },
       },
       {
         'g:zoom#statustext',
         icon = ' ',
-        color = { fg = colors.peanut },
+        -- color = { fg = colors.peanut },
       },
       {
         'encoding',
-        color = { fg = colors.yellow }
+        -- color = { fg = colors.yellow }
       },
       {
         'fileformat',
-        color = { fg = colors.yellow },
+        -- color = { fg = colors.yellow },
       },
       {
         'filetype',
         icon_only = false,
         colored = true, -- different colors for different filetypes
         icon = ' ',
-        color = { fg = colors.blue },
+        -- color = { fg = colors.blue },
       },
     },
     lualine_y = {
       {
         'location',
         icon = '',
-        color = function()
-          local mode_color = {
-            n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
-            i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
-            v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
-            V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
-            c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
-            R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
-          }
-          return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
-        end,
+        -- color = function()
+        --   local mode_color = {
+        --     n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
+        --     i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
+        --     v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
+        --     V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
+        --     c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
+        --     R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
+        --   }
+        --   return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
+        -- end,
       },
     },
     lualine_z = {
       {
         'progress',
-        color = function()
-          local mode_color = {
-            n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
-            i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
-            v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
-            V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
-            c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
-            R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
-          }
-          return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
-        end,
+        -- color = function()
+        --   local mode_color = {
+        --     n = { fg = colors.green, bg = colors.bg, gui = 'bold' },  -- Normal
+        --     i = { fg = colors.blue, bg = colors.bg, gui = 'bold' },   -- Insert
+        --     v = { fg = colors.purple, bg = colors.bg, gui = 'bold' }, -- Visual
+        --     V = { fg = colors.peanut, bg = colors.bg, gui = 'bold' }, -- Visual Line
+        --     c = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Command
+        --     R = { fg = colors.red, bg = colors.bg, gui = 'bold' },    -- Replace
+        --   }
+        --   return mode_color[vim.fn.mode()] or { fg = colors.green, bg = colors.bg }
+        -- end,
         padding = { left = 0, right = 1 }
       },
     },
