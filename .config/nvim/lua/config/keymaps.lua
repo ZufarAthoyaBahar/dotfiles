@@ -1,9 +1,6 @@
 local map = vim.keymap.set
 
--- map('n', '<Tab>', ':BufferLineCycleNext <CR>', {})
--- map('n', '<S-Tab>', ':BufferLineCyclePrev <CR>', {})
--- map('n', '<leader>x', ':Bdelete <CR>', { desc = "Close Buffer" })
-
+-- Buffer navigation
 map('n', '<Tab>', function()
   vim.cmd('BufferLineCycleNext')
 end, { desc = "Next Buffer" })
@@ -16,12 +13,12 @@ map('n', '<leader>x', function()
   vim.cmd('Bdelete')
 end, { desc = "Close Buffer" })
 
+-- save with Ctrl+s in normal, insert and visual mode
 map({ 'n', 'i', 'v' }, '<C-s>', '<ESC><cmd> w <CR>', {})
+-- jk to escape from insert module
+map('i', 'jk', '<ESC>', { desc = "Escape Insert Mode" })
 
--- map({ 'n', 't' }, '<A-i>', [[<C-\><C-n>:ToggleTerm 1 direction=float<CR>]], { desc = "Toggle Float Terminal" })
--- map({ 'n', 't' }, '<A-h>', [[<C-\><C-n>:ToggleTerm 2 direction=horizontal<CR>]], { desc = "Toggle Float Horizontal" })
--- map({ 'n', 't' }, '<A-v>', [[<C-\><C-n>:ToggleTerm 3 direction=vertical<CR>]], { desc = "Toggle Float Vertical" })
-
+-- Improved terminal toggling to start in insert mode
 map({ 'n', 't' }, '<A-i>', function()
   vim.cmd([[exe "ToggleTerm 1 direction=float" | startinsert]])
 end, { desc = "Toggle Float Terminal" })
