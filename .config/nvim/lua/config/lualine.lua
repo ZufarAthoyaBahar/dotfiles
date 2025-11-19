@@ -13,24 +13,23 @@ local colors = {
   dark_red = "#8b3434",
 }
 
-local mytheme = {
-  normal = {
-    a = { fg = colors.green, bg = colors.bg },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white },
-  },
-
-
-  inactive = {
-    a = { fg = colors.blue, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.white },
-  },
-}
+-- local mytheme = {
+--   normal = {
+--     a = { fg = colors.green, bg = colors.bg },
+--     b = { fg = colors.white, bg = colors.grey },
+--     c = { fg = colors.white },
+--   },
+--
+--
+--   inactive = {
+--     a = { fg = colors.blue, bg = colors.black },
+--     b = { fg = colors.white, bg = colors.black },
+--     c = { fg = colors.white },
+--   },
+-- }
 
 require('lualine').setup({
   options = {
-    -- theme = mytheme,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     globalstatus = true,
@@ -115,19 +114,19 @@ require('lualine').setup({
         end,
         -- color = { fg = colors.fg, gui = 'bold' },
       },
-      {
-        'g:zoom#statustext',
-        icon = ' ',
-        -- color = { fg = colors.peanut },
-      },
-      {
-        'encoding',
-        -- color = { fg = colors.yellow }
-      },
-      {
-        'fileformat',
-        -- color = { fg = colors.yellow },
-      },
+      -- {
+      --   'g:zoom#statustext',
+      --   icon = ' ',
+      --   -- color = { fg = colors.peanut },
+      -- },
+      -- {
+      --   'encoding',
+      --   -- color = { fg = colors.yellow }
+      -- },
+      -- {
+      --   'fileformat',
+      --   -- color = { fg = colors.yellow },
+      -- },
       {
         'filetype',
         icon_only = false,

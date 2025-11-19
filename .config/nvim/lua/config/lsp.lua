@@ -31,8 +31,7 @@ end
 
 
 -- 3. Daftar server (Diperbarui: ts_ls diubah menjadi tsserver)
-local servers = { "html", "cssls", "clangd", "lua_ls", "tsserver", "pyright", "tailwindcss", "rust_analyzer",
-  "pylsp, gopls" }
+local servers = { "html", "cssls", "clangd", "lua_ls", "tsserver", "pyright", "tailwindcss", "rust_analyzer", "gopls" }
 
 
 -- 4. Aktifkan server (untuk server dengan konfigurasi default)

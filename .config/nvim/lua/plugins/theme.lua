@@ -113,4 +113,23 @@ return {
       vim.cmd.colorscheme 'morta'
     end,
   },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    opts = {
+      flavour = 'mocha', -- latte, frappe, macchiato, mocha
+      integrations = {
+        telescope = true,
+        notify = true,
+        nvimtree = true,
+        treesitter = true,
+        which_key = true,
+        cmp = true,
+        gitsigns = true,
+        mason = true,
+        hop = true,
+      },
+    },
+  },
 }

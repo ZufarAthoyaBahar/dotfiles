@@ -30,3 +30,11 @@ end, { desc = "Toggle Horizontal Terminal" })
 map({ 'n', 't' }, '<A-v>', function()
   vim.cmd([[exe "ToggleTerm 3 direction=vertical" | startinsert]])
 end, { desc = "Toggle Vertical Terminal" })
+
+map('n', '<C-n>', function()
+    vim.cmd('NvimTreeToggle')
+  end,
+  { desc = "Toggle File Explorer" })
+map('n', '<leader>fc', function()
+  vim.cmd("CopilotChat")
+end, { desc = "Open Copilot Chat" })

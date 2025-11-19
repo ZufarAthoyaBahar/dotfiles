@@ -17,16 +17,12 @@ require("bufferline").setup({
     offsets = {
       {
         filetype = "NvimTree",
-        text = "",
+        text = "File Explorer",
         highlight = "Directory",
-        text_align = "left",
       },
     },
   },
   highlights = {
-    fill = {
-      bg = "#1E2127",
-    },
     close_button = {
       fg = "#e55561",
     },

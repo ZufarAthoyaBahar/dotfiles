@@ -146,10 +146,25 @@ vim.api.nvim_set_hl(0, "MyCustomFooter", { fg = "#7fbbb3", italic = true })
 -- Menu
 dashboard.section.buttons.val = {
   dashboard.button("n", "󰙅  Toggle Tree", ":NvimTreeOpen <CR>"),
+  -- dashboard.button("n", "󰙅  Toggle Tree", function()
+  --   vim.cmd([[exe "NvimTreeToggle"]])
+  -- end),
   dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
+  -- dashboard.button("f", "  Find file", function()
+  --   vim.cmd([[exe "Telescope find_files"]])
+  -- end),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+  -- dashboard.button("e", "  New file", function()
+  --   vim.cmd([[exe "ene" | startinsert]])
+  -- end),
   dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+  -- dashboard.button("r", "  Recently used files", function()
+  --   vim.cmd([[exe "Telescope oldfiles"]])
+  -- end),
   dashboard.button("q", "󰈆  Quit Neovim", ":qa<CR>"),
+  -- dashboard.button("q", "󰈆  Quit Neovim", function()
+  --   vim.cmd([[exe "qa"]])
+  -- end),
   -- more... check nvconfig.lua file for full list of buttons
 }
 
