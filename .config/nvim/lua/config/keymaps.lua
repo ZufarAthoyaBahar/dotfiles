@@ -17,19 +17,10 @@ end, { desc = "Close Buffer" })
 map({ 'n', 'i', 'v' }, '<C-s>', '<ESC><cmd> w <CR>', {})
 -- jk to escape from insert module
 map('i', 'jk', '<ESC>', { desc = "Escape Insert Mode" })
-
 -- Improved terminal toggling to start in insert mode
 map({ 'n', 't' }, '<A-i>', function()
-  vim.cmd([[exe "ToggleTerm 1 direction=float" | startinsert]])
+  vim.cmd([[exe "FloatTerm" | startinsert]])
 end, { desc = "Toggle Float Terminal" })
-
-map({ 'n', 't' }, '<A-h>', function()
-  vim.cmd([[exe "ToggleTerm 2 direction=horizontal" | startinsert]])
-end, { desc = "Toggle Horizontal Terminal" })
-
-map({ 'n', 't' }, '<A-v>', function()
-  vim.cmd([[exe "ToggleTerm 3 direction=vertical" | startinsert]])
-end, { desc = "Toggle Vertical Terminal" })
 
 map('n', '<C-n>', function()
     vim.cmd('NvimTreeToggle')

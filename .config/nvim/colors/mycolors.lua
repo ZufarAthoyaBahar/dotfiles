@@ -19,10 +19,6 @@ local colors = {
   fg_dim             = "#C3C0CF",
   fg_muted           = "#A29FAD",
 
-  primary            = "#88AEEB", -- function
-  accent             = "#E8D8A8", -- type
-  secondary          = "#5A637A", -- comment / UI
-
   -- KELOMPOK HIJAU & TEAL
   green_mint         = "#A4D8B5",
   green_sage         = "#8EB29C",
@@ -31,7 +27,7 @@ local colors = {
   seafoam            = "#B3E5E1",
 
   -- KELOMPOK BIRU
-  cyan_langit        = "#8AD7E3",
+  cyan_sky           = "#8AD7E3",
   blue_denim         = "#6BA2C8",
   blue_nordic        = "#81A1C1",
   blue_steel         = "#5E81AC",
@@ -89,8 +85,8 @@ local rainbow = {
   "#E7A974",
   "#D9C7A3",
   "#A4D8B5",
-  "#6BA2C8",
-  "#C4A7E7",
+  "#8AD7E3",
+  "#C6A0F6",
 }
 
 -- =========================
@@ -104,22 +100,22 @@ end
 -- Non-Treesitter Highlights
 -- =========================
 set("Normal", { fg = colors.foreground, bg = colors.background })
-set("Comment", { fg = colors.secondary, italic = true })
+set("Comment", { fg = colors.fg_comment_storm, italic = true })
 
 set("Constant", { fg = colors.magenta_anggrek })
-set("String", { fg = colors.green_mint })
-set("Number", { fg = colors.cyan_langit })
-set("Boolean", { fg = colors.cyan_langit })
+set("String", { fg = colors.green_mint, bg = colors.background })
+set("Number", { fg = colors.cyan_sky })
+set("Boolean", { fg = colors.cyan_sky })
 
 set("Identifier", { fg = colors.fg_dim })
 set("Function", { fg = colors.salmon })
 
 set("Statement", { fg = colors.orange_aprikot, bold = true })
-set("PreProc", { fg = colors.accent })
-set("Type", { fg = colors.accent })
+set("PreProc", { fg = colors.wheat })
+set("Type", { fg = colors.wheat })
 
-set("Special", { fg = colors.cyan_langit })
-set("Underlined", { fg = colors.primary, underline = true })
+set("Special", { fg = colors.cyan_sky })
+set("Underlined", { fg = colors.blue_nordic, underline = true })
 
 -- Messages
 set("Error", { fg = colors.error, bg = colors.background_light, bold = true })
@@ -137,17 +133,17 @@ set("StatusLineNC", { fg = colors.foreground, bg = "#120D17" })
 
 -- Popup menu
 set("Pmenu", { fg = colors.foreground, bg = "#1A1623" })
-set("PmenuSel", { fg = colors.background, bg = colors.primary })
+set("PmenuSel", { fg = colors.background, bg = colors.blue_nordic })
 set("PmenuSbar", { bg = "#1C1828" })
-set("PmenuThumb", { bg = colors.primary })
+set("PmenuThumb", { bg = colors.blue_nordic })
 
 -- Line numbers
 set("LineNr", { fg = "#4C435E" })
-set("CursorLineNr", { fg = colors.primary, bold = true })
+set("CursorLineNr", { fg = colors.blue_nordic, bold = true })
 
 -- Search
 set("Search", { fg = colors.background, bg = colors.orange_aprikot, bold = true })
-set("IncSearch", { fg = colors.background, bg = colors.accent, bold = true })
+set("IncSearch", { fg = colors.background, bg = colors.wheat, bold = true })
 
 -- Diff
 set("DiffAdd", { bg = "#1D2A23" })
@@ -169,7 +165,7 @@ set("DiagnosticUnderlineHint", { undercurl = true, sp = colors.green_mint })
 -- =========================
 -- Treesitter Highlights
 -- =========================
-set("@comment", { fg = colors.secondary, italic = true })
+set("@comment", { fg = colors.fg_comment_storm, italic = true })
 set("@comment.documentation", { fg = colors.fg_muted })
 
 set("@constant", { fg = colors.magenta_anggrek })
@@ -179,12 +175,12 @@ set("@constant.macro", { fg = colors.magenta_anggrek, bold = true })
 set("@string", { fg = colors.green_mint })
 set("@string.regex", { fg = colors.teal_pudar })
 set("@string.escape", { fg = colors.orange_aprikot })
-set("@string.special", { fg = colors.cyan_langit })
+set("@string.special", { fg = colors.cyan_sky })
 
 set("@character", { fg = colors.green_mint })
 set("@number", { fg = colors.orange_aprikot })
-set("@boolean", { fg = colors.cyan_langit })
-set("@float", { fg = colors.cyan_langit })
+set("@boolean", { fg = colors.cyan_sky })
+set("@float", { fg = colors.cyan_sky })
 
 set("@identifier", { fg = colors.fg_dim })
 set("@variable", { fg = colors.grey_lavender, italic = true })
@@ -195,32 +191,32 @@ set("@variable.member", { fg = colors.yellow_sand })
 set("@field", { fg = colors.peach })
 set("@property", { fg = colors.peach })
 
-set("@function", { fg = colors.purple_lavender })
-set("@function.builtin", { fg = colors.purple_lavender })
-set("@function.call", { fg = colors.purple_lavender })
+set("@function", { fg = colors.red_soft })
+set("@function.builtin", { fg = colors.red_soft })
+set("@function.call", { fg = colors.red_soft })
 set("@method", { fg = colors.blue_nordic })
 set("@method.call", { fg = colors.blue_nordic })
 
 set("@constructor", { fg = colors.teal_pudar })
 set("@namespace", { fg = colors.teal_pudar, italic = true })
 
-set("@operator", { fg = colors.cyan_langit })
+set("@operator", { fg = colors.cyan_sky })
 set("@keyword", { fg = colors.blue_steel, bold = true })
 set("@keyword.function", { fg = colors.orange_aprikot, italic = true })
-set("@keyword.operator", { fg = colors.cyan_langit })
+set("@keyword.operator", { fg = colors.cyan_sky })
 set("@keyword.return", { fg = colors.red_crimson })
 
 set("@type", { fg = colors.teal_pudar })
-set("@type.builtin", { fg = colors.accent, italic = true })
-set("@type.definition", { fg = colors.cyan_langit })
+set("@type.builtin", { fg = colors.wheat, italic = true })
+set("@type.definition", { fg = colors.cyan_sky })
 
 set("@tag", { fg = colors.magenta_anggrek })
 set("@tag.attribute", { fg = colors.yellow_sand })
-set("@tag.delimiter", { fg = colors.secondary })
+set("@tag.delimiter", { fg = colors.fg_comment_storm })
 
 set("@punctuation.bracket", { fg = colors.fg_muted })
 set("@punctuation.delimiter", { fg = colors.fg_muted })
-set("@punctuation.special", { fg = colors.cyan_langit })
+set("@punctuation.special", { fg = colors.cyan_sky })
 
 set("@symbol", { fg = colors.magenta_anggrek })
 
@@ -237,10 +233,10 @@ set("FloatBorder", { fg = colors.blue_steel, bg = colors.background_light })
 set("NvimTreeNormal", { fg = colors.grey_lavender, bg = colors.background })
 set("NvimTreeFolderName", { fg = colors.purple_lavender })
 set("NvimTreeOpenedFolderName", { fg = colors.purple_lavender, bold = true })
-set("NvimTreeEmptyFolderName", { fg = colors.secondary })
+set("NvimTreeEmptyFolderName", { fg = colors.fg_comment_storm })
 set("NvimTreeFileName", { fg = colors.foreground })
-set("NvimTreeImageFile", { fg = colors.cyan_langit })
-set("NvimTreeSpecialFile", { fg = colors.accent, underline = true })
+set("NvimTreeImageFile", { fg = colors.cyan_sky })
+set("NvimTreeSpecialFile", { fg = colors.wheat, underline = true })
 -- Git status
 set("NvimTreeGitFileIgnoredHL", { fg = colors.bg_charcoal })
 set("NvimTreeGitFileIgnoredHL", { fg = colors.bg_charcoal })
@@ -265,13 +261,6 @@ set("RenderMarkdownCodeBlock", { fg = colors.green_mint, bg = colors.background_
 set("RenderMarkdownCodeInline", { bg = colors.background_light })
 set("@markup.strong.markdown_inline", { fg = colors.peach, bold = true })
 set("@markup.italic.markdown_inline", { fg = colors.red_crimson, italic = true })
--- set("RenderMarkdownLink", { fg = colors.cyan_langit, undercurl = true })
--- set("RenderMarkdownH1Bg", { fg = colors.red_crimson, bg = colors.background_light, bold = true })
--- set("RenderMarkdownH2Bg", { fg = colors.orange_aprikot, bg = colors.background_light, bold = true })
--- set("RenderMarkdownH3Bg", { fg = colors.yellow_sand, bg = colors.background_light, bold = true })
--- set("RenderMarkdownH4Bg", { fg = colors.green_mint, bg = colors.background_light, bold = true })
--- set("RenderMarkdownH5Bg", { fg = colors.blue_denim, bg = colors.background_light, bold = true })
--- set("RenderMarkdownH6Bg", { fg = colors.purple_lavender, bg = colors.background_light, bold = true })
 
 for i = 1, 6 do
   local color = rainbow[i]
@@ -287,6 +276,7 @@ for i = 1, 6 do
     bg = darken(color, 0.70),
   })
 end
+
 -- =========================
 -- Return module
 -- =========================

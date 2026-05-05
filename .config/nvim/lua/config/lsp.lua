@@ -4,7 +4,6 @@
 -- Jika tidak, gunakan yang standar:
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-
 -- 2. Definisikan Fungsi on_attach (Ini menggantikan autocmd LspAttach Anda)
 local on_attach = function(client, bufnr)
   vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -31,7 +30,8 @@ end
 
 
 -- 3. Daftar server (Diperbarui: ts_ls diubah menjadi tsserver)
-local servers = { "html", "cssls", "clangd", "lua_ls", "tsserver", "pyright", "tailwindcss", "rust_analyzer", "gopls" }
+local servers = { "html", "cssls", "clangd", "lua_ls", "tsserver", "pyright", "tailwindcss", "rust_analyzer", "gopls",
+  "cpptools", "codelldb" }
 
 
 -- 4. Aktifkan server (untuk server dengan konfigurasi default)
@@ -66,3 +66,17 @@ vim.diagnostic.config({
 -- CATATAN PENTING:
 -- Hapus seluruh blok vim.api.nvim_create_autocmd("LspAttach", ...) yang lama
 -- karena fungsinya sudah digantikan oleh on_attach di atas.
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+    },
+  },
+})

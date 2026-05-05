@@ -17,7 +17,7 @@ return {
       start_in_insert = true,
       insert_mappings = true,
       direction = "horizontal",
-      winbar = { enabled = false },
+      winbar = { enabled = true },
       persist_size = false,
       present_mode = true,
       close_on_exit = true,

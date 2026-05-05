@@ -1,1 +1,1 @@
-vim.cmd("colorscheme mycolors")
+vim.cmd("colorscheme embark")

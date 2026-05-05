@@ -22,3 +22,22 @@ local theme_file = vim.fn.stdpath("config") .. "/lua/current-theme.lua"
 if vim.fn.filereadable(theme_file) == 1 then
   pcall(dofile, theme_file)
 end
+
+-- require("termui")
+--
+-- -- keymap
+-- vim.keymap.set("n", "<leader>tt", function()
+--   require("termui").open()
+-- end)
+--
+-- vim.keymap.set("n", "<leader>tn", function()
+--   require("termui").new()
+-- end)
+
+-- Import modul yang baru kita buat (asumsikan nama filenya lua/myterm.lua)
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+
+require("custom.floatterm")
+
+-- vim.opt.runtimepath:prepend(vim.fn.stdpath("data") .. "/lazy/nvim-treesitter")

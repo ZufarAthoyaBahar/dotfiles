@@ -5,6 +5,9 @@ return {
     local rainbow_delimiters = require 'rainbow-delimiters'
 
     vim.g.rainbow_delimiters = {
+
+      blacklist = { 'nvim-tree', 'lazy', 'mason' },
+
       strategy = {
         [''] = rainbow_delimiters.strategy['global'],
         vim = rainbow_delimiters.strategy['local'],

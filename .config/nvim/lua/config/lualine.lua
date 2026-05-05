@@ -30,6 +30,7 @@ local colors = {
 
 require('lualine').setup({
   options = {
+    theme = 'embark',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     globalstatus = true,
@@ -101,7 +102,7 @@ require('lualine').setup({
     lualine_x = {
       {
         function()
-          local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
+          local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
           if next(buf_clients) == nil then
             return '' -- tidak ada LSP aktif
           end

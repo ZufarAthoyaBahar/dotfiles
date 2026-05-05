@@ -36,7 +36,7 @@ return {
     'rose-pine/neovim',
     config = function()
       require('rose-pine').setup({
-        dark_variant = 'moon',
+        -- dark_variant = 'moon',
       })
     end,
   },
@@ -69,8 +69,18 @@ return {
   {
     'oxfist/night-owl.nvim',
   },
+  -- {
+  --   'embark-theme/vim',
+  -- },
+  --
   {
-    'embark-theme/vim',
+    "sthendev/embark.nvim",
+    name = "embark",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        vim.cmd([[ colorscheme embark ]])
+    end
   },
   {
     'EdenEast/nightfox.nvim',
